@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 const SECRET_KEY = 'ASFSFGFDASSADDFDFSFEDF';
@@ -6,7 +6,7 @@ const SECRET_KEY = 'ASFSFGFDASSADDFDFSFEDF';
 const users=[{
     name:"Hakan",
     email:"user1@gmail.com",
-    password: await bcrypt.hash("1234", 10)
+    password: await bcryptjs.hash("1234", 10)
 }]
 export async function POST(req) {
   const body = await req.json();
