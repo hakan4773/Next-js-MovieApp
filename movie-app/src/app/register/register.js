@@ -5,7 +5,6 @@ import  { useRouter } from 'next/navigation';
 import { CiFacebook } from 'react-icons/ci';
 import { CiInstagram } from 'react-icons/ci';
 import { CiTwitter } from 'react-icons/ci';
-import { registerUserAction } from '@/app/data/actions.js/auth-actions';
 const Register = () => {
 const [form,setForm]=useState({
   name:"",
@@ -95,7 +94,7 @@ const response=await fetch("/api/register",{
 return (
     <div className='flex justify-center items-center pb-12 w-screen h-screen  '>
      
-      <form action={registerUserAction} className='h-[500px] shadow-xl  rounded-md  border w-1/3 bg-opacity-80 flex  flex-col justify-center  items-center space-y-4    '>
+      <form  onSubmit={handleSubmit} className='h-[500px] shadow-xl  rounded-md  border w-1/3 bg-opacity-80 flex  flex-col justify-center  items-center space-y-4    '>
       <h1 className=' flex justify-center text-center text-3xl font-bold'>Create an Account</h1>
       <p className='flex justify-center text-center opacity-80 '>Please Enter your information to get started </p>
      <div className='flex space-x-4'>
@@ -120,7 +119,7 @@ return (
         {errors.password && <p className='text-red-500 text-sm'>{errors.password}</p>}
       </div>
       <button type='submit' className='w-[320px] p-2 text-white border rounded-md hover:bg-gray-400 bg-gray-800  font-bold shadow-sm'>Sign Up</button>
-<p className=''>Already have an acoount <Link className='underline ' href={"Login"}>Login</Link> </p>
+<p className=''>Already have an acoount <Link className='underline ' href={"/login"}>Login</Link> </p>
     </form>
 
 <div className='h-[500px]  shadow-xl text-white w-1/3  flex flex-col justify-center items-center  rounded-md border bg-red-500'>
